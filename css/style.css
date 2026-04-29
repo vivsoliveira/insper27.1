@@ -671,6 +671,17 @@ body::before {
 .prize-list li:last-child { border-bottom: none; font-style: italic; }
 .prize-list__icon { font-size: 0.95rem; flex-shrink: 0; opacity: 0.85; }
 
+.prize-disclaimer {
+  font-size: 0.72rem;
+  color: var(--cream-muted);
+  opacity: 0.75;
+  border-top: 1px solid rgba(240,230,206,0.1);
+  padding-top: 0.6rem;
+  margin-top: 0.2rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 .bonus-strip {
   display: flex;
   align-items: flex-start;
