@@ -225,30 +225,18 @@ function animateCounter(el, from, to, duration) {
 // 7. DIAS RESTANTES (dinâmico)
 // ────────────────────────────────────────────────────────────────
 (function setupPreCadastroCountdown() {
-  const elDays    = document.getElementById('cnt-days');
-  const elHours   = document.getElementById('cnt-hours');
-  const elMinutes = document.getElementById('cnt-minutes');
-  if (!elDays) return;
+  const el = document.getElementById('cnt-days');
+  if (!el) return;
 
-  const EVENT_DATE = new Date('2026-05-13T00:00:00');
-
-  function pad(n) { return String(n).padStart(2, '0'); }
+  const EVENT_DATE = new Date('2026-05-13T11:30:00');
 
   function update() {
-    const diff = EVENT_DATE - new Date();
-    if (diff <= 0) {
-      elDays.textContent    = '00';
-      if (elHours)   elHours.textContent   = '00';
-      if (elMinutes) elMinutes.textContent = '00';
-      return;
-    }
-    elDays.textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
-    if (elHours)   elHours.textContent   = pad(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-    if (elMinutes) elMinutes.textContent = pad(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
+    const diff  = EVENT_DATE - new Date();
+    el.textContent = diff <= 0 ? '0' : Math.ceil(diff / (1000 * 60 * 60));
   }
 
   update();
-  setInterval(update, 1000);
+  setInterval(update, 60000);
 })();
 
 
