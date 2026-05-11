@@ -224,17 +224,31 @@ function animateCounter(el, from, to, duration) {
 // ────────────────────────────────────────────────────────────────
 // 7. DIAS RESTANTES (dinâmico)
 // ────────────────────────────────────────────────────────────────
-(function setDaysRemaining() {
-  const el = document.getElementById('cnt-days');
-  if (!el) return;
+(function setupPreCadastroCountdown() {
+  const elDays    = document.getElementById('cnt-days');
+  const elHours   = document.getElementById('cnt-hours');
+  const elMinutes = document.getElementById('cnt-minutes');
+  if (!elDays) return;
 
-  // ⚠️ Altere a data do evento principal aqui
   const EVENT_DATE = new Date('2026-05-13T00:00:00');
-  const now        = new Date();
-  const diffMs     = EVENT_DATE - now;
-  const days       = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
 
-  el.textContent = days;
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function update() {
+    const diff = EVENT_DATE - new Date();
+    if (diff <= 0) {
+      elDays.textContent    = '00';
+      if (elHours)   elHours.textContent   = '00';
+      if (elMinutes) elMinutes.textContent = '00';
+      return;
+    }
+    elDays.textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+    if (elHours)   elHours.textContent   = pad(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    if (elMinutes) elMinutes.textContent = pad(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
+  }
+
+  update();
+  setInterval(update, 1000);
 })();
 
 

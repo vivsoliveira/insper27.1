@@ -508,6 +508,18 @@ body::before {
   margin-top: 0.25rem;
 }
 .counter-sep { color: var(--cream-muted); opacity: 0.4; font-size: 1rem; }
+.counter-sep--wide { opacity: 0.25; margin: 0 0.5rem; }
+
+.counter-strip__label {
+  font-family: var(--font-slab);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+}
 
 /* ── COUNTDOWN ── */
 .countdown-box {
@@ -1043,7 +1055,7 @@ body::before {
     text-align: center;
   }
 
-  .counter-sep {
+  .counter-sep--wide {
     display: none;
   }
 
