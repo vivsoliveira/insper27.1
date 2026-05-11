@@ -139,7 +139,7 @@
               <span class="event-info-card__icon">🔗</span>
               <div>
                 <span class="event-info-card__label">Online</span>
-                <span class="event-info-card__value">Link em breve — apenas cadastro, sem brinde ou sorteio</span>
+                <span class="event-info-card__value" id="online-link-text">Link em breve — apenas cadastro, sem brinde ou sorteio</span>
               </div>
             </div>
           </div>
@@ -151,10 +151,23 @@
 
         <article class="column column--highlight">
           <div class="highlight-box">
-            <p class="highlight-box__eyebrow">✦ Em Breve ✦</p>
-            <h3 class="highlight-box__title">Cadastre-se Agora</h3>
-            <p class="highlight-box__body">O formulário de pré-cadastro estará disponível em breve.<br/>Fique ligado — a estrada está quase pronta para começar.</p>
-            <p class="coming-soon-badge">◆ Disponível em Breve ◆</p>
+            <!-- Estado: em breve -->
+            <div id="precadastro-soon">
+              <p class="highlight-box__eyebrow">✦ Em Breve ✦</p>
+              <h3 class="highlight-box__title">Cadastre-se Agora</h3>
+              <p class="highlight-box__body">O formulário de pré-cadastro estará disponível em breve.<br/>Fique ligado — a estrada está quase pronta para começar.</p>
+              <p class="coming-soon-badge">◆ Disponível em Breve ◆</p>
+            </div>
+            <!-- Estado: link ativo (13/05 09h → 16/05 00h) -->
+            <div id="precadastro-open" style="display:none;">
+              <p class="highlight-box__eyebrow">✦ Inscrições Abertas ✦</p>
+              <h3 class="highlight-box__title">Cadastre-se Agora</h3>
+              <p class="highlight-box__body">O pré-cadastro está aberto! Garanta seu lugar na jornada dourada.</p>
+              <a href="https://www.eformei.com.br/sistema/cadastro_aluno.php?turma=199766"
+                 target="_blank" rel="noopener" class="btn-retro">
+                ✦ Fazer Pré-Cadastro ✦
+              </a>
+            </div>
           </div>
         </article>
 

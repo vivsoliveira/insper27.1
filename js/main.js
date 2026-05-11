@@ -241,7 +241,36 @@ function animateCounter(el, from, to, duration) {
 
 
 // ────────────────────────────────────────────────────────────────
-// 8. LOGO — drag & drop / clique para upload (preview)
+// 8. LINK DO PRÉ-CADASTRO — visível apenas 13/05 09h → 16/05 00h
+// ────────────────────────────────────────────────────────────────
+(function controlPrecadastroLink() {
+  const OPEN  = new Date('2026-05-13T09:00:00');
+  const CLOSE = new Date('2026-05-16T00:00:00');
+
+  const soon      = document.getElementById('precadastro-soon');
+  const open      = document.getElementById('precadastro-open');
+  const onlineTxt = document.getElementById('online-link-text');
+
+  function check() {
+    const now    = new Date();
+    const active = now >= OPEN && now < CLOSE;
+
+    if (soon) soon.style.display = active ? 'none'  : '';
+    if (open) open.style.display = active ? ''      : 'none';
+
+    if (onlineTxt) {
+      onlineTxt.innerHTML = active
+        ? '<a href="https://www.eformei.com.br/sistema/cadastro_aluno.php?turma=199766" target="_blank" rel="noopener" style="color:inherit;">Acessar link — apenas cadastro, sem brinde ou sorteio</a>'
+        : 'Link em breve — apenas cadastro, sem brinde ou sorteio';
+    }
+  }
+
+  check();
+  setInterval(check, 60000);
+})();
+
+// ────────────────────────────────────────────────────────────────
+// 9. LOGO — drag & drop / clique para upload (preview)
 // ────────────────────────────────────────────────────────────────
 (function setupLogoUpload() {
   const slot = document.querySelector('.logo-placeholder');
